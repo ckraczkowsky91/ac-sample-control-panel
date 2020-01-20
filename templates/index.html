@@ -1,0 +1,26 @@
+<html>
+    <body>
+      <h1>Suggest New Resource</h1>
+      <form action="{{ url_for('submit_new_resource') }}" method="POST">
+        <p>What's the name of the organization you'd like to suggest?</p>
+        <input name='orgname' />
+        <p>What's the link to this organization's website?</p>
+        <input name='orgwebsite' />
+        <p>Tell us a bit more about the organization</p>
+        <input name='orgdescription' />
+        <p>Phone Number</p>
+        <input name='orgphone' />
+        <p>Email Address</p>
+        <input name='orgemail' />
+        <p>Zip Code</p>
+        <input name='orgzip' />
+        <br>
+        <br>
+        <button type='submit'>Submit</button>
+      </form>
+      <br>
+      <div>
+          <a href="{{ url_for('admin.index') }}">Go to admin!</a>
+      </div>
+    </body>
+</html>
