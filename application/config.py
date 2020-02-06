@@ -1,0 +1,7 @@
+FLASK_ADMIN_SWATCH = 'paper'
+SQLALCHEMY_DATABASE_URI = 'postgresql://localhost/sample-flask-app-with-postgresql'
+SQLALCHEMY_TRACK_MODIFICATIONS = False
+SECRET_KEY = 'secretkey'
+SECURITY_REGISTERABLE = True
+SECURITY_PASSWORD_SALT = 'none'
+SECURITY_SEND_REGISTER_EMAIL = False
