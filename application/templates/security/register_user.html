@@ -1,0 +1,20 @@
+{% extends 'admin/master.html' %}
+{% from 'security/_macros.html' import render_field, render_field_with_errors %}
+
+{% block body %}
+{{ super() }}
+  <div class='container'>
+    <h1>Register</h1>
+    <div class='well'>
+      <form action="{{ url_for_security('register') }}" method='POST' name='register_user_form'>
+        <!-- Need for WTForms to render the form's hidden fields -->
+        {{ register_user_form.hidden_tag() }}
+        {{ render_field_with_errors(register_user_form.email) }}
+        {{ render_field_with_errors(register_user_form.password) }}
+        {{ render_field_with_errors(register_user_form.password_confirm) }}
+        {{ render_field(register_user_form.submit, class='btn btn-primary') }}
+      </form>
+    </div>
+    <p>Already have an account? Login to your existing account <a href="{{ url_for('security.login') }}">here</a>!</p>
+  </div>
+{% endblock %}

@@ -62,13 +62,15 @@ admin = Admin(app, base_template='my_master.html', name='Control Panel', templat
 admin.add_view(UnverifiedEntities(Entity, db.session, category='Submissions', menu_icon_type='glyph', menu_icon_value='glyphicon-home', ))
 # admin.add_view(EntityView(Entity, db.session, category='Submissions'))
 
-# @security.context_processor
-# def security_context_processor():
-#     return dict(
-#         admin_base_template = admin.base_template,
-#         admin_view = admin.index_view,
-#         get_url = url_for,
-#         h = helpers
-#     )
+# Added a context processor to our instance of Flask-Security to put Flask-Admin views in context
+# Need this to override the default login and register views
+@security.context_processor
+def security_context_processor():
+    return dict(
+        admin_base_template = admin.base_template,
+        admin_view = admin.index_view,
+        get_url = url_for,
+        h = helpers
+    )
 
 from . import routes
